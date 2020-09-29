@@ -8,16 +8,24 @@
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-firestore.js"></script>
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-analytics.js"></script>
-    <link rel="stylesheet" href="styles.css">
+    <!--<link rel="stylesheet" href="styles.css">-->
 </head>
 
 <body>
     <h1>Dry October Challenge</h1>
     <div class="content">
-        <form action="" id="add-entry-form"></form>
+        <form id="add-entry-form">
+            <input type="text" name="title" placeholder="How do you feel, bud?">
+            <p>Have you remained dry since your last entry?</p>
+            <input type="radio" id="yes" name="dry" value="yes">
+            <label for="yes">Yes</label>
+            <input type="radio" id="no" name="dry" value="no">
+            <label for="no">No</label>
+            <br>
+            <p>Sobriety test: Can you accurately enter the date and time where you are right now?</p>
+            <input type="datetime-local" name="date">
+            <button>Add Entry</button>
+        </form>
         <ul id="entry-list"></ul>
     </div>
 
@@ -36,7 +44,6 @@
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
-        firebase.analytics();
         //make a variable for the database
         const db = firebase.firestore();
         console.log(db);
