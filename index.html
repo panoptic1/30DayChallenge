@@ -13,17 +13,30 @@
 
 <body>
     <h1>Dry October Challenge</h1>
+    <h4>*Beta Version</h4>
+    <p>Friends, hello. Thank you so much for your participation in this inaugural Sober October event.</p>
+    <p>Just remember: abstaining from alcohol for the last month of the 2020 campaign season will be a feat you can
+        always be proud of! Not unlike running a marathon, etc.</p>
+    <p>A little something about this app: It's pretty basic. Google Firebase is a free database service by Google.
+        This page is hooked up to a database that I have created using Firebase. Whenever you make an entry,
+        that information will get stored on the database. Whenever the page loads after that, you'll see your entry pop
+        up on the page.</p>
+    <p></p>
     <div class="content">
         <form id="add-entry-form">
-            <input type="text" name="title" placeholder="How do you feel, bud?">
-            <p>Have you remained dry since your last entry?</p>
+            <input type="text" name="title" placeholder="What is your name?">
+            <p>Have you had a drink since yesterday's entry?</p>
             <input type="radio" id="yes" name="dry" value="yes">
             <label for="yes">Yes</label>
             <input type="radio" id="no" name="dry" value="no">
             <label for="no">No</label>
             <br>
-            <p>Sobriety test: Can you accurately enter the date and time where you are right now?</p>
-            <input type="datetime-local" name="date">
+            <label for="journal">How was your day?</label>
+            <br>
+            <textarea id="journal" name="journal" rows="4" cols="50">
+
+            </textarea>
+            <br>
             <button>Add Entry</button>
         </form>
         <ul id="entry-list"></ul>
