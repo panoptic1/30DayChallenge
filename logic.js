@@ -11,13 +11,14 @@ function renderEntries(doc){
     let date = document.createElement('span');
 
     li.setAttribute('data-id', doc.id);
-    title.textContent = doc.data().title;
-    dry.textContent = doc.data().dry;
-    date.textContent = doc.data().date;
-
+    date.innerHTML = `<p> Enry date: <strong>${doc.data().date}</strong> </p>`;
+    title.innerHTML = `<p> How did you feel? <strong>${doc.data().title} </strong> </p>`;
+    dry.innerHTML = `<p>Did you stay dry? <strong>${doc.data().dry}</strong> </p>
+                    <br>`;
+    
+    li.appendChild(date);
     li.appendChild(title);
     li.appendChild(dry);
-    li.appendChild(date);
 
     entryList.appendChild(li);
 }
