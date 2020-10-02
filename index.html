@@ -13,16 +13,38 @@
 
 <body>
     <h1>Dry October Challenge</h1>
+    <h2>*pre-Beta version</h2>
+    <h4>Hello friends! This is simply a place for us to connect on a first-name basis while we all endeavor to stay
+        sober througout the month of October.</h4>
+    <p>I would encourage you to make an entry for every day of the month just to track your progress and stay connected
+        to the group.</p>
+    <p>If you'd like, give yourself a brief introduction in your first entry.</p>
+    <p>Fun Fact: The 'Delete Entry' button that appears on every entry will actually delete your entry from the
+        database connected to the site. Poof!</p>
+    <p><strong>As such, please refrain from hitting the delete button on other
+            people's entries!</strong></p>
+    <p>Let's do this!</p>
     <div class="content">
         <form id="add-entry-form">
-            <input type="text" name="title" placeholder="How do you feel, bud?">
+            <input type="text" name="user" placeholder="Hi! My name is...">
+            <label for="start">Today's date:</label>
+            <input type="date" id="date" name="date" value="" min="2020-10-01" max="2020-11-01">
             <p>Have you remained dry since your last entry?</p>
             <input type="radio" id="yes" name="dry" value="yes">
             <label for="yes">Yes</label>
             <input type="radio" id="no" name="dry" value="no">
             <label for="no">No</label>
             <br>
-            <input type="datetime-local" name="date">
+            <label for="quantity">How many dry days have you logged so far?</label>
+            <input type="number" id="quantity" name="quantity" min="0" max="10000">
+            <br>
+            <label for="journal">Tell us a little about yourself and how you're feeling as we embark.</label>
+
+            <textarea id="journal" name="journal" rows="4" cols="50">
+
+            </textarea>
+            <br>
+            <br>
             <button>Add Entry</button>
         </form>
         <ul id="entry-list"></ul>

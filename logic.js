@@ -6,21 +6,27 @@ const form = document.querySelector('#add-entry-form');
 //create element and render entries therein
 function renderEntries(doc){
     let li = document.createElement('li');
-    let title = document.createElement('span');
-    let dry = document.createElement('span');
+    let user = document.createElement('span');
     let date = document.createElement('span');
+    let dry = document.createElement('span');
+    let days = document.createElement('span');
+    let entry = document.createElement('span');
     let deleteBtn = document.createElement('div');
 
     li.setAttribute('data-id', doc.id);
-    date.innerHTML = `<p> Enry date: <strong>${doc.data().date}</strong> </p>`;
-    title.innerHTML = `<p> How did you feel? <strong>${doc.data().title} </strong> </p>`;
-    dry.innerHTML = `<p>Did you stay dry? <strong>${doc.data().dry}</strong> </p>`;
+    user.innerHTML = `<p> Entry by <strong>${doc.data().user} </strong> </p>`;
+    date.innerHTML = `<p> Date <strong>${doc.data().date} </strong> </p>`;
+    dry.innerHTML = `<p>Dry day? <strong>${doc.data().dry}</strong> </p>`;
+    days.innerHTML = `<p><strong>${doc.data().days}</strong> consecutive days dry.</p>`;
+    entry.innerHTML = `<p>"${doc.data().entry}"</p>`;
     deleteBtn.innerHTML = `<button class="delete">Delete Entry</button>`
     
 
+    li.appendChild(user);
     li.appendChild(date);
-    li.appendChild(title);
     li.appendChild(dry);
+    li.appendChild(days);
+    li.appendChild(entry);
     li.appendChild(deleteBtn);
 
     entryList.appendChild(li);
@@ -46,12 +52,17 @@ form.addEventListener('submit', (event) => {
     console.log(event);
     event.preventDefault();
     db.collection('entries').add({
-        title: form.title.value,
+        user: form.user.value,
+        date: form.date.value,
         dry: form.dry.value,
-        date: form.date.value
+        days: form.quantity.value,
+        entry: form.journal.value
     });
     form.title.value = '';
-    form.dry.value = '';
     form.date.value = '';
+    form.dry.value = '';
+    form.quantity.value = '';
+    form.journal.value = '';
+    
 });
 
